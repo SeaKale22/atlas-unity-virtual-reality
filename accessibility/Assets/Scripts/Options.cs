@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Options : MonoBehaviour
     public GameObject optionsCanvas;
     public Slider GazeTime;
     public TMP_Text GazeTimeText;
-    private float GazeTimeSet;
+    private double GazeTimeSet;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Options : MonoBehaviour
     void Update()
     {
         GazeTimeSet = GazeTime.value;
+        GazeTimeSet = Math.Round(GazeTimeSet, 2);
         GazeTimeText.text = $"Gaze Selection Time: {GazeTimeSet} ";
     }
     
